@@ -1,0 +1,48 @@
+Sub VBA_Wall_Street()
+
+    Dim ws As Worksheet
+    For Each ws In Worksheets
+    'Multiple worksheets to run
+    ws.Activate
+
+    Dim Ticker As String
+    Dim Total_Stock_Volume As Double
+    Dim Placement As Integer
+    Placement = 2
+
+    ws.Range("I1").Value = "Ticker"
+    ws.Range("J1").Value = "Total Stock Volume"
+    'Define location of header title
+    
+    BottomRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+    'Finding the last row for looping through the Tickers in column 1
+    For i = 2 To BottomRow
+    'For loop to generate output for total amount of volume each stock had over the year
+        If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+        Ticker = Cells(i, 1).Value
+        Total_Stock_Volume = Total_Stock_Volume + Cells(i, 7).Value
+        'Finding the total stock volumes from column 7
+    
+        ws.Range("I" & Placement).Value = Ticker
+        ws.Range("J" & Placement).Value = Total_Stock_Volume
+        Placement = Placement + 1
+        Total_Stock_Volume = 0
+        'Placement of output
+        
+    Else
+    
+        Total_Stock_Volume = Total_Stock_Volume + Cells(i, 7).Value
+
+    End If
+
+  Next i
+
+Cells.Columns.AutoFit
+'Formatting cells with auto-width on each worksheet before moving to the next
+
+ Next ws
+'Next Loop and next worksheet
+
+
+
+End Sub
