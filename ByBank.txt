@@ -1,0 +1,55 @@
+# First we'll import the os module
+# This will allow us to create file paths across operating systems
+import os
+
+# Module for reading CSV files
+import csv
+# csvpath = "../Resources/accounting.csv"
+#attempt/csvpath = os.path.join('python', 'PyBank', 'budget_data.csv')
+csvpath = os.path.join('budget_data.csv')
+#C:\Users\mtral\python-challenge\PyBank\budget_data.csv
+with open(csvpath, newline='') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    for row in csvreader
+    Months.append(row[0])
+    NetRev.append(int(row[1]))
+    print(csvreader)
+
+csv_header = next(csvreader)
+  #print(f"CSV Header: {csv_header}")
+for row in csvreader:
+        #print(row)
+
+#The total number of months included in the dataset
+#The net total amount of "Profit/Losses" over the entire period
+#The average of the changes in "Profit/Losses" over the entire period
+#The greatest increase in profits (date and amount) over the entire period
+#The greatest decrease in losses (date and amount) over the entire period
+#two columns: Date and Profit/Losses
+
+
+ #empty list to store first column then second column of data   
+    Months = []
+    NetRev = []
+
+with open(csvpath, 'r') as csvfile:
+    csvread = csv.reader(csvfile)
+
+#The total number of months included in the dataset
+total_months = len(months)
+
+#Finding the largest positive and negative numbers
+greatest_inc = NetRev[0]
+greatest_dec = NetRev[0]
+TotalRevenue = 0
+
+#The net total amount of "Profit/Losses" over the entire period
+#The greatest increase in profits (date and amount) over the entire period
+
+#PANDAS
+#import pandas as pd
+#bank = "budget.csv"
+#bank_pd = pd.read_csv(bank)
+#bank_pd.head()
+#colnames = ['Date', 'Profit/Losses']
+#data = pandas.read_csv('budget.csv', names=colnames)
